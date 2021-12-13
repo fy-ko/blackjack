@@ -1,0 +1,4 @@
+rootProject.name = 'blackjack'
+include 'core'
+include 'cli'
+
