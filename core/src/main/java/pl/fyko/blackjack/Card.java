@@ -7,7 +7,7 @@ import java.util.Objects;
  *
  * @author Filip Kołodziejczyk
  */
-class Card {
+class Card implements Comparable<Card> {
     private final Figures figure;
     private final Suits suit;
 
@@ -29,6 +29,14 @@ class Card {
         } else {
             return figure.value();
         }
+    }
+
+    /**
+     * Returns raw value of the card - so always 11 for ACE.
+     * @return value of the card
+     */
+    int getValue() {
+        return getValue(0);
     }
 
     @Override
@@ -53,5 +61,12 @@ class Card {
     @Override
     public int hashCode() {
         return Objects.hash(figure, suit);
+    }
+
+    @Override
+    public int compareTo(Card other) {
+        if (this.getValue(0) < other.getValue(0)) return -1;
+        else if (this.getValue(0) > other.getValue(0)) return 1;
+        return 0;
     }
 }
