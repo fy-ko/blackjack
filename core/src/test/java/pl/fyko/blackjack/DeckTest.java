@@ -13,6 +13,30 @@ import static org.junit.jupiter.api.Assertions.*;
 class DeckTest {
 
     @Test
+    void isComplete_AfterCreation_ExpectTrue() {
+        Deck deck = new Deck();
+
+        assertTrue(deck.isComplete());
+    }
+
+    @Test
+    void isComplete_AfterGetCard_ExpectFalse() {
+        Deck deck = new Deck();
+        deck.getCard();
+
+        assertFalse(deck.isComplete());
+    }
+
+    @Test
+    void isComplete_AfterReset_ExpectTrue() {
+        Deck deck = new Deck();
+        deck.getCard();
+        deck.reset();
+
+        assertTrue(deck.isComplete());
+    }
+
+    @Test
     void getCard_On53rdTry_ExpectEmptyStackException() {
         Deck deck = new Deck();
         int deckSize = Figures.values().length * Suits.values().length;
