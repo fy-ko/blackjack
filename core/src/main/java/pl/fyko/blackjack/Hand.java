@@ -31,6 +31,10 @@ class Hand {
         return hand.size();
     }
 
+    Card[] getCards() {
+        return hand.toArray(new Card[0]);
+    }
+
     Card getLastCard() {
         return lastCard;
     }
