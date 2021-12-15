@@ -12,6 +12,10 @@ class Hand {
         hand.add(card);
     }
 
+    void clear() {
+        hand.clear();
+    }
+
     int getSum() {
         int sum = 0;
         for (Card card: hand.stream().sorted().toList()) {
