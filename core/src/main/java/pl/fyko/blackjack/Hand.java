@@ -20,6 +20,10 @@ class Hand {
         return sum;
     }
 
+    int cardCount() {
+        return hand.size();
+    }
+
     boolean isBlackjack() {
         return getSum() == 21;
     }
