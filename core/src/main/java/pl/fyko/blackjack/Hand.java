@@ -7,13 +7,16 @@ import java.util.HashSet;
  */
 class Hand {
     private final HashSet<Card> hand = new HashSet<>();
+    private Card lastCard;
 
     void giveCard(Card card) {
-        hand.add(card);
+        lastCard = card;
+        hand.add(lastCard);
     }
 
     void clear() {
         hand.clear();
+        lastCard = null;
     }
 
     int getSum() {
@@ -26,6 +29,10 @@ class Hand {
 
     int cardCount() {
         return hand.size();
+    }
+
+    Card getLastCard() {
+        return lastCard;
     }
 
     boolean isBlackjack() {
