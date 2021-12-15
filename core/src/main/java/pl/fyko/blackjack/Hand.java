@@ -1,6 +1,5 @@
 package pl.fyko.blackjack;
 
-import java.util.Arrays;
 import java.util.HashSet;
 
 /**
@@ -15,9 +14,17 @@ class Hand {
 
     int getSum() {
         int sum = 0;
-        for (Card card: hand) {
-            sum += card.getValue(sum); // BUG HERE! what if ace is first, then it will always count as 11
+        for (Card card: hand.stream().sorted().toList()) {
+            sum += card.getValue(sum);
         }
         return sum;
+    }
+
+    boolean isBlackjack() {
+        return getSum() == 21;
+    }
+
+    boolean isBust() {
+        return getSum() > 21;
     }
 }
