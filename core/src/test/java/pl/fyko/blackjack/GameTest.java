@@ -13,7 +13,7 @@ class GameTest {
     void game_OnlyDeal_ExpectPlayerHandSumLessOrEqual21() {
         Game game = new Game();
 
-        assertTrue(game.getPlayerHand().getSum() <= 21);
+        assertTrue(game.getPlayerSum() <= 21);
     }
 
     @Test
@@ -24,17 +24,17 @@ class GameTest {
             game.getCard();
         }
 
-        assertTrue(game.getPlayerHand().getSum() >= 21);
+        assertTrue(game.getPlayerSum() >= 21);
     }
 
     @Test
     void game_GetCardsIfHandLessOrEqual11_ExpectPlayerHandGreaterThan11AndLessOrEqual21() {
         Game game = new Game();
 
-        while (game.getPlayerHand().getSum() <= 11) {
+        while (game.getPlayerSum() <= 11) {
             game.getCard();
         }
 
-        assertTrue(game.getPlayerHand().getSum() > 11 && game.getPlayerHand().getSum() <= 21);
+        assertTrue(game.getPlayerSum() > 11 && game.getPlayerSum() <= 21);
     }
 }
