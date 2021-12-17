@@ -18,7 +18,7 @@ class UI {
         System.out.println();
 
         System.out.println("Dealing cards...");
-        sleep();
+        sleep(4000);
         printPlayerCards();
         game();
 
@@ -26,9 +26,7 @@ class UI {
 
     void game() {
         do {
-            if (game.getPlayerSum() == 21) {
-                System.out.println("BLACKJACK!");
-            } else {
+            if (game.getPlayerSum() != 21) {
                 printPlayOptions();
                 userDecision();
             }
@@ -50,6 +48,7 @@ class UI {
     }
 
     void finishGame() {
+        sleep(2000);
         cardPrinter.printCards(game.getDealerHand());
         System.out.println("DEALERS SCORE: " + game.getDealerSum());
         System.out.println();
@@ -58,11 +57,12 @@ class UI {
         } else {
             System.out.println("You have lost!");
         }
+
     }
 
-    void sleep() {
+    void sleep(long milis) {
         try {
-            Thread.sleep(4000);
+            Thread.sleep(milis);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -70,7 +70,11 @@ class UI {
 
     private void printPlayerCards() {
         cardPrinter.printCards(game.getPlayerHand());
-        System.out.println("SCORE: " + game.getPlayerSum());
+        int sum = game.getPlayerSum();
+        System.out.println("SCORE: " + sum);
+        if (game.isPlayerBust()) System.out.println("BUST !");
+        else if(game.isPlayerBlackjack()) System.out.println("BLACKJACK !");
+        System.out.println();
     }
 
     private void printPlayOptions() {
