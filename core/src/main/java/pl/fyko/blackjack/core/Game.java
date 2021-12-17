@@ -46,6 +46,14 @@ public class Game {
         return playerHand.getSum();
     }
 
+    public boolean isPlayerBust() {
+        return playerHand.isBust();
+    }
+
+    public boolean isPlayerBlackjack() {
+        return playerHand.isBlackjack();
+    }
+
     /**
      * @return array of cards on dealers hand
      */
