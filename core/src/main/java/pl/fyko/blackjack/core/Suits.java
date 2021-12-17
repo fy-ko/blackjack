@@ -1,9 +1,9 @@
-package pl.fyko.blackjack;
+package pl.fyko.blackjack.core;
 
 /**
  * @author Filip Kołodziejczyk
  */
-enum Suits {
+public enum Suits {
     HEARTS,
     DIAMONDS,
     CLUBS,

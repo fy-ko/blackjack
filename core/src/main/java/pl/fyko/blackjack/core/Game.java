@@ -1,11 +1,11 @@
-package pl.fyko.blackjack;
+package pl.fyko.blackjack.core;
 
 /**
  * Game class is an entry point for UIs and is responsible for monitoring the state of the game.
  *
  * @author Filip Kołodziejczyk
  */
-class Game {
+public class Game {
     private final Dealer dealer = new Dealer();
     private final Hand playerHand = new Hand();
     private boolean stand = false;
@@ -14,7 +14,7 @@ class Game {
      * Constructs an instance of Game class. It's ready to start first game - dealer and player hands are already dealt.
      * To start new game simply call {@link #reset()}.
      */
-    Game() {
+    public Game() {
         dealer.dealCards(playerHand);
     }
 
@@ -35,28 +35,28 @@ class Game {
     /**
      * @return array of cards on players hand
      */
-    Card[] getPlayerHand() {
+    public Card[] getPlayerHand() {
         return playerHand.getCards();
     }
 
     /**
      * @return sum of cards on players hand
      */
-    int getPlayerSum() {
+    public int getPlayerSum() {
         return playerHand.getSum();
     }
 
     /**
      * @return array of cards on dealers hand
      */
-    Card[] getDealerHand() {
+    public Card[] getDealerHand() {
         return dealer.showHand().getCards();
     }
 
     /**
      * @return sum of cards on dealers hand
      */
-    int getDealerSum() {
+    public int getDealerSum() {
         return dealer.showHand().getSum();
     }
 
@@ -64,7 +64,7 @@ class Game {
      * Deals a new card for player hand and returns it.
      * @return new card on player hand
      */
-    Card getCard() {
+    public Card getCard() {
         dealer.giveCard(playerHand);
         return playerHand.getLastCard();
     }
@@ -73,7 +73,7 @@ class Game {
      * Ends the game
      * @see #finishGame()
      */
-    void stand() {
+    public void stand() {
         stand = true;
         finishGame();
     }
@@ -81,14 +81,14 @@ class Game {
     /**
      * @return true if player chose to stand or his cards causes bust or blackjack
      */
-    boolean isFinished() {
+    public boolean isFinished() {
         return stand || playerHand.isBust() || playerHand.isBlackjack();
     }
 
     /**
      * @return true if dealer is bust or dealers sum is lower than players while player is not bust
      */
-    boolean isGameWon() {
+    public boolean isGameWon() {
         return (dealer.showHand().isBust() || getDealerSum() < getPlayerSum())
                 && !playerHand.isBust();
     }

@@ -1,4 +1,4 @@
-package pl.fyko.blackjack;
+package pl.fyko.blackjack.core;
 
 import java.util.Objects;
 
@@ -7,13 +7,21 @@ import java.util.Objects;
  *
  * @author Filip Kołodziejczyk
  */
-class Card implements Comparable<Card> {
+public class Card implements Comparable<Card> {
     private final Figures figure;
     private final Suits suit;
 
     Card(Figures name, Suits suit) {
         this.figure = name;
         this.suit = suit;
+    }
+
+    public Figures getFigure() {
+        return figure;
+    }
+
+    public Suits getSuit() {
+        return suit;
     }
 
     /**

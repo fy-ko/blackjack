@@ -1,9 +1,9 @@
-package pl.fyko.blackjack;
+package pl.fyko.blackjack.core;
 
 /**
  * @author Filip Kołodziejczyk
  */
-enum Figures {
+public enum Figures {
     TWO(2),
     THREE(3),
     FOUR(4),
@@ -24,7 +24,7 @@ enum Figures {
         this.value = value;
     }
 
-    int value() {
+    public int value() {
         return value;
     }
 }

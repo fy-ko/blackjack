@@ -1,4 +1,4 @@
-package pl.fyko.blackjack;
+package pl.fyko.blackjack.core;
 
 import java.util.Collections;
 import java.util.HashSet;

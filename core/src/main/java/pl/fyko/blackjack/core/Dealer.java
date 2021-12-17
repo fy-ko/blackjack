@@ -1,4 +1,4 @@
-package pl.fyko.blackjack;
+package pl.fyko.blackjack.core;
 
 /**
  * Dealer class is resposible for dealing cards from a {@link Deck}.

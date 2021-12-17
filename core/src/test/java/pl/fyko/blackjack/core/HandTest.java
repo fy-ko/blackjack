@@ -1,7 +1,6 @@
-package pl.fyko.blackjack;
+package pl.fyko.blackjack.core;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
