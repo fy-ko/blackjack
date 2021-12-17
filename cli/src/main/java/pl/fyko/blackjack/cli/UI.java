@@ -48,6 +48,7 @@ class UI {
     }
 
     void finishGame() {
+        System.out.println("Waiting for dealer...");
         sleep(2000);
         cardPrinter.printCards(game.getDealerHand());
         System.out.println("DEALERS SCORE: " + game.getDealerSum());
